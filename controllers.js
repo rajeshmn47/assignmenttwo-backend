@@ -41,5 +41,22 @@ router.get("/getallusers",async function(req, res){
       'users': 'user'
     })
   })
+  
+  router.get("/edituser/:id",async function(req, res){
+    console.log(req.params.id)
+
+    res.status(200).json({
+      'users': 'user',
+      'id':req.params.id
+    })
+  })
+
+  router.get('/getonequestion/:id',async (req, res, next) => {
+console.log(req.params.d)
+    res.status(200).json({
+      success: true,
+      'id':req.params.id
+  })
+  })
 
   module.exports = router;
