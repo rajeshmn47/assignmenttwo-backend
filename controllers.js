@@ -12,7 +12,7 @@ router.get("/getallusers",async function(req, res,next){
     const page=req.query.page?req.query.page:1
     const users=await User.find()
     res.status(200).json({
-      'users': users.slice((page-1)*5,page*5)
+      'users': users.slice((page-1)*5,page*5),'pagecount':users.length
     })
   })
 
