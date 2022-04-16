@@ -7,7 +7,7 @@ const {Namerr} = require('namerr');
 
 
 
-router.get("/getallusers",async function(req, res,next){
+router.get("/getallusers",async function(req, res){
     console.log(req.query.page)
     const page=req.query.page?req.query.page:1
     const users=await User.find()
@@ -16,7 +16,7 @@ router.get("/getallusers",async function(req, res,next){
     })
   })
 
-  router.get("/createusers",async function(req, res,next){
+  router.get("/createusers",async function(req, res){
     for(i=0;i<5;i++){
         const firstName =Namerr.name()
         const email=firstName.split(' ').join('')+'@email.com'
@@ -31,7 +31,7 @@ router.get("/getallusers",async function(req, res,next){
     })
   })
 
-  router.post("/edituser/:id",async function(req, res,next){
+  router.post("/edituser/:id",async function(req, res){
     console.log(req.params.id)
  const user=await User.findById(req.params.id)       
  user.email=req.body.email
