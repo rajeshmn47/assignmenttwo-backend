@@ -32,9 +32,11 @@ router.get("/getallusers",async function(req, res,next){
   })
 
   router.post("/edituser/:id",async function(req, res,next){
+    console.log(req.params.id)
  const user=await User.findById(req.params.id)       
  user.email=req.body.email
  await user.save()
+ console.log(user)
     res.status(200).json({
       'users': 'user'
     })
