@@ -31,9 +31,8 @@ router.get("/getallusers",async function(req, res){
     })
   })
 
-  router.post("/edituser/:id",async function(req, res){
-    console.log(req.params.id)
-    const user = await User.findById(req.params.id)
+  router.post("/edituser",async function(req, res){
+    const user = await User.findById(req.body.id)
     user.email=req.body.email
     await user.save()
  console.log(user)
