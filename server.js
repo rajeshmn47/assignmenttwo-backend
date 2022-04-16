@@ -37,8 +37,9 @@ app.get('/createproduct',async(req,res)=>{
 app.get('/findout',async(req,res)=>{
     res.send("API running")
 })
-
-app.listen(9000,()=>{
-    const firstName =Namerr.name()
-    const email=firstName.split(' ').join('')+'@email.com'
-    console.log('App is running on port 9000',firstName,email)})
+const PORT = process.env.PORT || 9000
+app.listen(PORT, () => {
+      const firstName =Namerr.name()
+      const email=firstName.split(' ').join('')+'@email.com'
+      console.warn(`App listening on http://localhost:${PORT}`)
+    })
