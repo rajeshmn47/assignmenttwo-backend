@@ -7,13 +7,13 @@ const userscontroller = require('./controllers')
 const {Namerr} = require('namerr');
 
 
-
-
-
-const ATLAS_URI ='mongodb+srv://rajeshmn47:uni1ver%40se@cluster0.bpxam.mongodb.net/assignment?retryWrites=true&w=majority'
 const url = 'https://assignmenttworajesh.netlify.app'
 app.use(cors({ origin: url, credentials: true }))
 app.use('/user/',userscontroller)
+
+
+const ATLAS_URI ='mongodb+srv://rajeshmn47:uni1ver%40se@cluster0.bpxam.mongodb.net/assignment?retryWrites=true&w=majority'
+
 mongoose.Promise = global.Promise
 mongoose.connect(
     ATLAS_URI,
