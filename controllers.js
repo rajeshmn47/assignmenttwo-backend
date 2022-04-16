@@ -27,7 +27,7 @@ router.get("/getallusers",async function(req, res){
         await user.save()
     }
     res.status(200).json({
-      'users': 'user'
+      'users': 'useddr'
     })
   })
 
