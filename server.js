@@ -11,7 +11,7 @@ const {Namerr} = require('namerr');
 
 
 const ATLAS_URI ='mongodb+srv://rajeshmn47:uni1ver%40se@cluster0.bpxam.mongodb.net/assignment?retryWrites=true&w=majority'
-const url = 'http://localhost:3000'
+const url = 'https://assignmenttworajesh.netlify.app/'
 app.use(cors({ origin: url, credentials: true }))
 app.use('/user/',userscontroller)
 mongoose.Promise = global.Promise
