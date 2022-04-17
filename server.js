@@ -5,9 +5,11 @@ const cors=require('cors')
 const User=require('./model')
 const userscontroller = require('./controllers')
 const {Namerr} = require('namerr');
+const bodyParser = require('body-parser')
 
-
-const url = 'https://assignmenttworajesh.netlify.app'
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json())
+const url = 'http://localhost:3000'
 app.use(cors({ origin: url, credentials: true }))
 app.use('/user/',userscontroller)
 
