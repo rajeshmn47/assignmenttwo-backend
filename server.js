@@ -29,7 +29,7 @@ mongoose.connect(
   }
 )
 app.get("/",async(req,res)=>{
-    res.send("API running")
+    res.send("API running success")
 })
 
 app.get("/pushcategories",async(req,res)=>{
