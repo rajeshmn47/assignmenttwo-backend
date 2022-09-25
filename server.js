@@ -10,7 +10,9 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json())
 const url = 'http://localhost:3000'
-app.use(cors({ origin: url, credentials: true }))
+app.use(cors({
+  origin: '*'
+}));
 app.use('/user/',userscontroller)
 
 
