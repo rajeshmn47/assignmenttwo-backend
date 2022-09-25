@@ -2,7 +2,6 @@ const User=require('./model')
 const bodyParser = require('body-parser')
 var express = require('express')
 const router = express.Router()
-const {Namerr} = require('namerr');
 
 
 
@@ -16,16 +15,16 @@ router.get("/getallusers",async function(req, res){
     })
   })
 
-  router.get("/createusers",async function(req, res){
-    for(i=0;i<5;i++){
-        const firstName =Namerr.name()
-        const email=firstName.split(' ').join('')+'@email.com'
+  router.post("/createuser",async function(req, res){
+  const {name,email,phonenumber,company}=req.body
       const user=User({
-          name:`${firstName}`,
-          email:`${email}`,
+          name:name,
+          email:email,
+          phonenumber:phonenumber,
+          company:company
       })
         await user.save()
-    }
+    
     res.status(200).json({
       'users': 'useddr'
     })
@@ -34,19 +33,26 @@ router.get("/getallusers",async function(req, res){
   router.post("/edituser",async function(req, res){
     console.log(req.body,'rajesh')
 const user=await User.findById(req.body.id)
-user.email=req.body.email
-await user.save()
+const {name,email,phonenumber,company}=req.body
+const u=user({
+    name:name,
+    email:email,
+    phonenumber:phonenumber,
+    company:company
+})
+  await u.save()
     res.status(200).json({
       'users': 'user',
       'id':req.body
     })
   })
   
-  router.get("/edituser/:id",async function(req, res){
+  router.get("/deleteuser/:id",async function(req, res){
     console.log(req.params.id)
     const user=await User.findById(req.params.id)
+    await user.remove()
     res.status(200).json({
-      'users':user,
+      'deleted':'ok',
       'id':req.params.id
     })
   })
